@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import VueClipboard from 'vue-clipboard2'
+Vue.use(VueClipboard)
+
+Vue.filter('globalSuffix', (msg, suf) => msg + suf || '')
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

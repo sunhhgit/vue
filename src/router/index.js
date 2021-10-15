@@ -15,7 +15,7 @@ export default new Router({
       name: 'home',
       component: () => _import('home'),
       meta: {
-        deep: 1
+        depth: 1
       }
     },
     {
@@ -23,15 +23,15 @@ export default new Router({
       name: 'list',
       component: () => _import('pageList'),
       meta: {
-        deep: 2
+        depth: 2
       }
     },
     {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
       component: () => _import('pageDetail'),
       meta: {
-        deep: 3
+        depth: 3
       }
     }
   ]
