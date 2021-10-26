@@ -6,6 +6,13 @@
     <h6>{{phoneNum | phoneFormat | prefix('tel:') | globalSuffix('（隐私保护）')}}</h6>
 
     <button @click="copyText(phoneNum)">点击复制号码</button>
+
+    <h1>minVuex测试</h1>
+    <h6>$store.state的内容：{{$store.state}}</h6>
+    <h6>姓名：{{$store.getters.getName}}</h6>
+    <h6>手机：{{$store.getters.getPhone}}</h6>
+    <button @click="handleClick">点击</button>
+    <button @click="syncHandleClick">异步点击</button>
   </div>
 </template>
 
@@ -15,7 +22,10 @@ import { phoneFormat, prefix } from '../../filters/index'
 export default {
   name: 'home',
   mixins: [commonMixins],
-  filters: { phoneFormat, prefix },
+  filters: {
+    phoneFormat,
+    prefix
+  },
   data () {
     return {
       msg: 'homePage',
@@ -23,8 +33,17 @@ export default {
       phoneNum: 13899996666
     }
   },
-  mounted() {
+  mounted () {
     console.log(`PageHome - mixinName => ${this.mixinsName}`)
+  },
+  methods: {
+    handleClick() {
+      this.$store.commit('changeName', '王小虎')
+    },
+
+    syncHandleClick() {
+      this.$store.dispatch('syncChangeTel', '13988886666')
+    }
   }
 }
 </script>
