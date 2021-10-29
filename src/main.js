@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 // 引入自定义的vuex
-import minVuex from './minVuex'
+import minVuex from './minVuex/store'
 Vue.use(minVuex)
 
 import VueClipboard from 'vue-clipboard2'

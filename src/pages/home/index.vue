@@ -11,8 +11,8 @@
     <h6>$store.state的内容：{{$store.state}}</h6>
     <h6>姓名：{{$store.getters.getName}}</h6>
     <h6>手机：{{$store.getters.getPhone}}</h6>
-    <button @click="handleClick">点击</button>
-    <button @click="syncHandleClick">异步点击</button>
+    <button @click="handleClick">点击更改姓名</button>
+    <button @click="syncHandleClick">点击异步(2秒后)更改手机</button>
   </div>
 </template>
 
@@ -42,7 +42,7 @@ export default {
     },
 
     syncHandleClick() {
-      this.$store.dispatch('syncChangeTel', '13988886666')
+      this.$store.dispatch('syncChangeTel', '13912345678')
     }
   }
 }

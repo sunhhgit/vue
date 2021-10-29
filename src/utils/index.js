@@ -43,6 +43,13 @@ export function DOMUUID () {
   return `m-dom-id-${UUIDIndex}`
 }
 
+// 封装的全局方法forEachValue取得子模块的名字和内容，递归调用子模块进行注册
+export const forEachValue = (obj, callback) => {
+  Object.keys(obj).forEach(key => {
+    callback(key, obj[key])
+  })
+}
+
 /**
  * 数字保留小数点位
  * 默认保留三位有效小数
