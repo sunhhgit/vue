@@ -9,10 +9,16 @@
 
     <h1>minVuex测试</h1>
     <h6>$store.state的内容：{{$store.state}}</h6>
-    <h6>姓名：{{$store.getters.getName}}</h6>
-    <h6>手机：{{$store.getters.getPhone}}</h6>
+    <h6>$store.getters方式获取信息： 姓名：{{$store.getters.getName}} ；手机：{{$store.getters.getPhone}}</h6>
     <button @click="handleClick">点击更改姓名</button>
     <button @click="syncHandleClick">点击异步(2秒后)更改手机</button>
+
+    <h1>
+      <router-link to="/routerHash">Hash Demo</router-link>
+    </h1>
+    <h1>
+      <router-link to="/routerHistory">History Demo</router-link>
+    </h1>
   </div>
 </template>
 

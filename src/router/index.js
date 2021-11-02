@@ -33,6 +33,22 @@ export default new Router({
       meta: {
         depth: 3
       }
+    },
+    {
+      path: '/routerHash',
+      name: 'routerHash',
+      component: () => _import('routerHash'),
+      meta: {
+        depth: 4
+      }
+    },
+    {
+      path: '/routerHistory',
+      name: 'routerHistory',
+      component: () => _import('routerHistory'),
+      meta: {
+        depth: 5
+      }
     }
   ]
 })
