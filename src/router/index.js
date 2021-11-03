@@ -49,6 +49,14 @@ export default new Router({
       meta: {
         depth: 5
       }
+    },
+    {
+      path: '/asyncComponents',
+      name: 'asyncComponents',
+      component: () => _import('asyncComponents'),
+      meta: {
+        depth: 6
+      }
     }
   ]
 })

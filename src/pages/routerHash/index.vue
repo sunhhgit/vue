@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li><a href="#/home">点击跳转首页</a></li>
-    <li><a href="#/routerDemo">点击跳转router页面</a></li>
+    <li><a href="#/routerHash">点击跳转router页面</a></li>
     <li><a href="#/list">点击跳转list列表面</a></li>
     <!-- <li><a href="#efdsfsfd">我是锚点</a></li> -->
   </ul>

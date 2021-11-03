@@ -1,24 +1,25 @@
 <template>
   <div class="box">
-    <h1>{{ msg }}</h1>
+    <h2>{{ msg }}</h2>
     <router-link to="/list">跳转列表页</router-link>
 
-    <h6>{{phoneNum | phoneFormat | prefix('tel:') | globalSuffix('（隐私保护）')}}</h6>
-
-    <button @click="copyText(phoneNum)">点击复制号码</button>
-
-    <h1>minVuex测试</h1>
+    <div style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
+      <h6>{{phoneNum | phoneFormat | prefix('tel:') | globalSuffix('（隐私保护）')}}</h6>
+      <button @click="copyText(phoneNum)">点击复制号码</button>
+    </div>
+    <hr/>
+    <h6>minVuex测试</h6>
     <h6>$store.state的内容：{{$store.state}}</h6>
     <h6>$store.getters方式获取信息： 姓名：{{$store.getters.getName}} ；手机：{{$store.getters.getPhone}}</h6>
     <button @click="handleClick">点击更改姓名</button>
     <button @click="syncHandleClick">点击异步(2秒后)更改手机</button>
-
-    <h1>
-      <router-link to="/routerHash">Hash Demo</router-link>
-    </h1>
-    <h1>
-      <router-link to="/routerHistory">History Demo</router-link>
-    </h1>
+    <hr/>
+    <h6>
+      <a style="margin-right: 50px" href="#/routerHash">HashRouter Demo</a>
+      <router-link to="/routerHistory">HistoryRouter Demo</router-link>
+    </h6>
+    <hr/>
+    <h6><router-link to="/asyncComponents">异步组件</router-link></h6>
   </div>
 </template>
 

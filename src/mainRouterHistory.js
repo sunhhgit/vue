@@ -1,48 +1,6 @@
-class HistoryRoutes {
-  constructor () {
-    // 保存对应键和函数
-    this.routes = {}
+import { HistoryRouter } from './router/HistoryRouter'
 
-    // 监听popstate事件
-    window.addEventListener('popstate', e => {
-      console.log('popstate')
-      const path = this.getState()
-      this.routes[path] && this.routes[path]()
-    })
-  }
-
-  // 获取路由路径
-  getState () {
-    const path = window.location.pathname
-    return path ? path : '/'
-  }
-
-  // path路径和callback函数对应起来
-  route (path, callback) {
-    // eslint-disable-next-line no-empty-function
-    this.routes[path] = callback || function () {}
-  }
-
-
-  /*
-   * init(path) {
-   *   history.replaceState(null, null, path);
-   *   this.routes[path] && this.routes[path]();
-   * }
-   */
-  go (path) {
-    // 压入浏览历史对象
-    history.pushState(null, null, path)
-
-    /*
-     * 修改页面内容
-     * this.routes[path] && this.routes[path]();
-     */
-    this.routes[path]()
-  }
-}
-
-const Router = new HistoryRoutes()
+const Router = new HistoryRouter()
 console.log('location.pathname=>', location.pathname)
 // Router.init(location.pathname);
 

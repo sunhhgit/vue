@@ -1,7 +1,7 @@
 <template>
   <div class="list-box">
     <h1>PageList</h1>
-    <h1><router-link to="/home">返回首页</router-link></h1>
+    <h1><a href="#/home">返回首页</a></h1>
     <div v-for="item in list" :key="item" class="list-box-item">
       <router-link :to="item">{{ item }}</router-link>
     </div>
