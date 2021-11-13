@@ -3,16 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// 引入自定义的vuex
-import minVuex from './minVuex/store'
-Vue.use(minVuex)
+
+// 网络层
+import './shared/ajax'
 
 import VueClipboard from 'vue-clipboard2'
 Vue.use(VueClipboard)
 
 Vue.filter('globalSuffix', (msg, suf) => msg + suf || '')
 
-Vue.config.productionTip = false
+// 引入自定义的vuex
+import minVuex from './minVuex/store'
+Vue.use(minVuex)
 
 const store = new minVuex.Store({
   state: {
@@ -43,6 +45,8 @@ const store = new minVuex.Store({
     }
   }
 })
+
+Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({

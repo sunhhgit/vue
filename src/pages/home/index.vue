@@ -1,17 +1,20 @@
 <template>
-  <div class="box">
-    <h2>{{ msg }}</h2>
+  <div class="relative-position box">
+    <h6 class="q-my-md">{{ msg }}</h6>
+    <div class="absolute-top-right" style="top: 16px;right: 16px">
+      <login></login>
+    </div>
     <router-link to="/list">跳转列表页</router-link>
 
-    <div style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
+    <div class="q-my-md" style="display: flex;flex-direction: row;justify-content: center; align-items: center;">
       <h6>{{phoneNum | phoneFormat | prefix('tel:') | globalSuffix('（隐私保护）')}}</h6>
       <button @click="copyText(phoneNum)">点击复制号码</button>
     </div>
     <hr/>
-    <h6>minVuex测试</h6>
+    <h6 class="q-my-md">minVuex测试</h6>
     <h6>$store.state的内容：{{$store.state}}</h6>
     <h6>$store.getters方式获取信息： 姓名：{{$store.getters.getName}} ；手机：{{$store.getters.getPhone}}</h6>
-    <button @click="handleClick">点击更改姓名</button>
+    <button class="q-ma-md" @click="handleClick">点击更改姓名</button>
     <button @click="syncHandleClick">点击异步(2秒后)更改手机</button>
     <hr/>
     <h6>
@@ -24,6 +27,7 @@
 </template>
 
 <script>
+import login from '../../fragments/login'
 import { commonMixins } from '../../mixins/index'
 import { phoneFormat, prefix } from '../../filters/index'
 export default {
@@ -33,6 +37,7 @@ export default {
     phoneFormat,
     prefix
   },
+  components: { login },
   data () {
     return {
       msg: 'homePage',
