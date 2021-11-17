@@ -83,22 +83,22 @@ module.exports = {
         test: /\.scss?$/,
         loaders: ["style", "css", "sass"]
       },
-      {
-        test: '/\.js$/',
-        // loader: path.resolve(__dirname, 'loaderDemo', 'loaderA')
-        // loader: 'loaderA'
-        // 执行顺序是倒序的，先执行loaderC; pitch可以做正序的逻辑
-        use: [
-          // 'loaderA',
-          // 'loaderB',
-          // {
-          //   loader: 'loaderC',
-          //   options: {
-          //     name: 'ttttttttt11111111'
-          //   }
-          // }
-        ]
-      },
+      // {
+      //   test: '/\.js$/',
+      //   loader: path.resolve(__dirname, 'loaderDemo', 'loaderA')
+      //   loader: 'loaderA'
+      //   // 执行顺序是倒序的，先执行loaderC; pitch可以做正序的逻辑
+      //   use: [
+      //     'loaderA',
+      //     'loaderB',
+      //     {
+      //       loader: 'loaderC',
+      //       options: {
+      //         name: 'ttttttttt11111111'
+      //       }
+      //     }
+      //   ]
+      // },
       // 模拟bableLoader转换
       // {
       //   test: /\.js$/,
@@ -112,12 +112,12 @@ module.exports = {
     ]
   },
   // loader集中管理
-  resolveLoader: {
-    modules: [
-      'node_modules',
-      path.resolve(__dirname, 'loaders')
-    ]
-  },
+  // resolveLoader: {
+  //   modules: [
+  //     'node_modules',
+  //     path.resolve(__dirname, 'loaders')
+  //   ]
+  // },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

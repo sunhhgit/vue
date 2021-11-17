@@ -23,6 +23,11 @@
     </h6>
     <hr/>
     <h6><router-link to="/asyncComponents">异步组件</router-link></h6>
+    <hr/>
+    <div>vueTree</div>
+    <div style="width: 300px">
+      <vue-tree :options="treeOptions" :value="[8]"></vue-tree>
+    </div>
   </div>
 </template>
 
@@ -30,6 +35,7 @@
 import login from '../../fragments/login'
 import { commonMixins } from '../../mixins/index'
 import { phoneFormat, prefix } from '../../filters/index'
+import vueTree from '@/components/VueTree/tree'
 export default {
   name: 'home',
   mixins: [commonMixins],
@@ -37,23 +43,70 @@ export default {
     phoneFormat,
     prefix
   },
-  components: { login },
+  components: {
+    login,
+    vueTree
+  },
   data () {
     return {
       msg: 'homePage',
       mixinsName: 'homeMixinsName',
-      phoneNum: 13899996666
+      phoneNum: 13899996666,
+      treeOptions: [
+        {
+          value: 1,
+          text: 'no.1'
+        },
+        {
+          value: 2,
+          text: 'no.2'
+        },
+        {
+          value: 3,
+          text: 'no.3',
+          children: [
+            {
+              value: 4,
+              text: 'no.4'
+            }
+          ]
+        },
+        {
+          value: 5,
+          text: 'no.5',
+          children: [{
+            value: 6,
+            text: 'no.6'
+          }]
+        },
+        {
+          value: 7,
+          text: 'no.7',
+          children: [{
+            value: 8,
+            text: 'no.8'
+          }]
+        },
+        {
+          value: 999,
+          text: 'no.999',
+          children: [{
+            value: 4321,
+            text: 'no.4321'
+          }]
+        }
+      ]
     }
   },
   mounted () {
     // console.log(`PageHome - mixinName => ${this.mixinsName}`)
   },
   methods: {
-    handleClick() {
+    handleClick () {
       this.$store.commit('changeName', '王小虎')
     },
 
-    syncHandleClick() {
+    syncHandleClick () {
       this.$store.dispatch('syncChangeTel', '13912345678')
     }
   }
