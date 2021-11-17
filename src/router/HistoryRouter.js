@@ -5,7 +5,7 @@ export class HistoryRouter {
 
     // 监听popstate事件
     window.addEventListener('popstate', e => {
-      console.log('popstate')
+      // console.log('popstate')
       const path = this.getState()
       this.routes[path] && this.routes[path]()
     })

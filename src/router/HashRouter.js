@@ -26,7 +26,7 @@ export class HashRouter {
      * 获取当前的hash值
      * location.hash 获取的值为："#/a, 因此 location.hash.slice(1) = '/a' 这样的
      */
-    console.log('hashChangeUrl', this.currentHash)
+    // console.log('hashChangeUrl', this.currentHash)
     this.currentHash = location.hash.slice(1) || '/'
     // 执行当前hash对应的callback函数
     this.routes[this.currentHash] && this.routes[this.currentHash]()

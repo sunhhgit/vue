@@ -32,6 +32,7 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
+    // 在项目中引入模块时，有时候不需要写.vue,.js,.json这种后缀
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
@@ -40,17 +41,20 @@ module.exports = {
   },
   module: {
     rules: [
+      // 不同类型的文件做不同的loader引入以及配置
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+      // 针对文件夹做指定的打包处理
       {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
+      // 针对相同类型的loader做不同的配置路径、配置名输出，加hash值
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
@@ -78,7 +82,40 @@ module.exports = {
       { //从这一段上面是默认的！不用改！下面是没有的需要你手动添加，相当于是编译识别scss!
         test: /\.scss?$/,
         loaders: ["style", "css", "sass"]
-      }
+      },
+      {
+        test: '/\.js$/',
+        // loader: path.resolve(__dirname, 'loaderDemo', 'loaderA')
+        // loader: 'loaderA'
+        // 执行顺序是倒序的，先执行loaderC; pitch可以做正序的逻辑
+        use: [
+          // 'loaderA',
+          // 'loaderB',
+          // {
+          //   loader: 'loaderC',
+          //   options: {
+          //     name: 'ttttttttt11111111'
+          //   }
+          // }
+        ]
+      },
+      // 模拟bableLoader转换
+      // {
+      //   test: /\.js$/,
+      //   loader: 'babelLoader',
+      //   options: {
+      //     presets: [
+      //       '@babel/preset-env'
+      //     ]
+      //   }
+      // }
+    ]
+  },
+  // loader集中管理
+  resolveLoader: {
+    modules: [
+      'node_modules',
+      path.resolve(__dirname, 'loaders')
     ]
   },
   node: {

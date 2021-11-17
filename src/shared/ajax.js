@@ -6,7 +6,7 @@ import { wrapError } from './wrapError'
 
 // 上报
 window.trace = function (key, value) {
-  console.log('trace is ', key, value)
+  // console.log('trace is ', key, value)
 }
 
 if (!Vue.prototype.$ajax) {

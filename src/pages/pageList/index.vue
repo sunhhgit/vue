@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    console.log(`PageList - mixinsName => ${this.mixinsName}`)
+    // console.log(`PageList - mixinsName => ${this.mixinsName}`)
     this.$nextTick(() => {
       this.list = new Array(8).fill('')
         .map((item, index) => `detail/${index}`)

@@ -1,7 +1,7 @@
 import { HistoryRouter } from './router/HistoryRouter'
 
 const Router = new HistoryRouter()
-console.log('location.pathname=>', location.pathname)
+// console.log('location.pathname=>', location.pathname)
 // Router.init(location.pathname);
 
 const changeColor = function (color) {
@@ -22,7 +22,7 @@ const ul = document.querySelector('ul')
 if (ul) {
   // 路由的劫持，A标签默认执行router.go方法
   ul.addEventListener('click', e => {
-    console.log(e.target)
+    // console.log(e.target)
     if (e.target.tagName === 'A') {
       e.preventDefault()
       Router.go(e.target.getAttribute('href'))

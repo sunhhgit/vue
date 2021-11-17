@@ -28,7 +28,7 @@ export default {
           this.user = res.data
           // 获取登录态
           store.dispatch('main/updateUser', this.user)
-          console.log('autoLogin user', this.user)
+          // console.log('autoLogin user', this.user)
         }
       })
     }

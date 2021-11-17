@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted () {
-    console.log(`PageHome - mixinName => ${this.mixinsName}`)
+    // console.log(`PageHome - mixinName => ${this.mixinsName}`)
   },
   methods: {
     handleClick() {
