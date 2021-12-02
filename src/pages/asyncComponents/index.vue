@@ -14,9 +14,9 @@
 
 <script>
 import Vue from 'vue'
-const async1 = () => import(/* webpackChunkName: 'async1' */ '../../components/async1.vue')
+const async1 = () => import(/* webpackChunkName: 'async1' */ '../../components/asyncCom/async1.vue')
 
-Vue.component('async2', () => import('../../components/async2.vue'))
+Vue.component('async2', () => import('../../components/asyncCom/async2.vue'))
 
 Vue.component('async-example', (resolve, reject) => {
   setTimeout(() => {
@@ -31,13 +31,13 @@ Vue.component('async-webpack-example', (resolve, reject) => {
   // 这个特殊的 `require` 语法将会告诉 webpack
   // 自动将你的构建代码切割成多个包，这些包
   // 会通过 Ajax 请求加载
-  require(['../../components/async4.vue'], resolve)
+  require(['../../components/asyncCom/async4.vue'], resolve)
 })
 
 Vue.component(
   'async-webpack-example1',
   // 这个动态导入会返回一个 `Promise` 对象。
-  () => import(/* webpackChunkName: 'async-webpack-example1' */ '../../components/async5.vue')
+  () => import(/* webpackChunkName: 'async-webpack-example1' */ '../../components/asyncCom/async5.vue')
 )
 
 
@@ -46,7 +46,7 @@ export default {
   components: {
     async1,
     async3: () => ({
-      component: import(/* webpackChunkName: 'async3' */'../../components/async3.vue'),
+      component: import(/* webpackChunkName: 'async3' */'../../components/asyncCom/async3.vue'),
       // loading: Loading,
       // error: SadFaceComponent,
       // Delay before showing the loading component. Default: 200ms.
