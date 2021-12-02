@@ -8,7 +8,7 @@ export default {
     const cid = this.cid || (`item${++count}`)
     return {
       level: (this.$parent.level || 0) + 1, // 当前节点的层级
-      indent: 1, // 缩进单位
+      indent: 10, // 缩进单位
       expand: false,
       checked: false,
       cid
@@ -63,15 +63,17 @@ export default {
   },
   render (h) {
     return (
-      <li class={['tree_item', this.checked && 'is-checked']}>
+      <li class={['tree_item', 'q-py-xs', this.checked && 'is-checked']}>
         {/* 展开箭头 */}
         <div class={['arrow', this.expand ? 'expand' : '']}
-          style={{ display: this.isFolder ? 'block' : 'none' }}
-          onClick={this.handleClickExpand}></div>
+          style={{ display: this.isFolder ? 'block' : 'none',
+            marginLeft: this.level !== 0 && (`${(this.level - 1) * this.indent + Math.sqrt(9 * 9 * 2) * (this.level - 1)}px`) }}
+          onClick={this.handleClickExpand}>
+        </div>
 
         {/* 展示标题 */}
         <a class={['v-tree__title']}
-          style={{ paddingLeft: this.level !== 0 && (`${this.level * this.indent}px`) }}
+          style={{ paddingLeft: this.level !== 0 && (`${this.level * this.indent + Math.sqrt(9 * 9 * 2) * (this.level - 1)}px`) }}
           onClick={this.handleClickItem}>
           { this.option.text }
         </a>
@@ -98,26 +100,30 @@ export default {
 </script>
 <style scoped>
   .tree_item {
+    text-align: left;
     cursor: pointer;
   }
   li {
     position: relative;
   }
   .v-tree__title {
-    margin: 5px;
+    margin-left: 10px;
+    /*margin: 5px;*/
   }
   .arrow {
     position: absolute;
-    left: -10px;
-    top: 10px;
-    width: 5px;
-    height: 5px;
+    /*left: -10px;*/
+    /*top: 10px;*/
+    margin-top: 2px;
+    width: 8px;
+    height: 8px;
     border-top: 1px solid gray;
     border-left: 1px solid gray;
     transform: rotate(-135deg);
   }
   .expand {
     transform: rotate(45deg);
+    margin-top: 8px;
   }
   .is-checked {
     color: blue;

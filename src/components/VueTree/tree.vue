@@ -10,15 +10,11 @@ export default {
   props: {
     value: {
       type: Array,
-      default () {
-        return []
-      }
+      default: () => []
     },
     options: {
       type: Array,
-      default () {
-        return []
-      }
+      default: () => []
     }
   },
   data () {
@@ -51,7 +47,7 @@ export default {
         <ul class="vue-tree">
           {
             this.options.map((itemData, index) => {
-              console.log('value', this.value)
+              // console.log('value,name, itemData=>', this.value, this.name, JSON.stringify(itemData))
               return (
                 <item name={this.name}
                   option={itemData}

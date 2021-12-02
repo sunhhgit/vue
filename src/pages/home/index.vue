@@ -25,7 +25,7 @@
     <h6><router-link to="/asyncComponents">异步组件</router-link></h6>
     <hr/>
     <div>vueTree</div>
-    <div style="width: 300px">
+    <div style="width: 300px;padding: 10px 20px;background: ghostwhite;margin: 10px auto;">
       <vue-tree :options="treeOptions" :value="[8]"></vue-tree>
     </div>
   </div>
@@ -35,7 +35,7 @@
 import login from '../../fragments/login'
 import { commonMixins } from '../../mixins/index'
 import { phoneFormat, prefix } from '../../filters/index'
-import vueTree from '@/components/VueTree/tree'
+import vueTree from '../../components/VueTree/tree'
 export default {
   name: 'home',
   mixins: [commonMixins],
@@ -67,32 +67,45 @@ export default {
           children: [
             {
               value: 4,
-              text: 'no.4'
+              text: 'no.3-1'
+            },
+            {
+              value: 5,
+              text: 'no.3-2'
             }
           ]
         },
         {
-          value: 5,
-          text: 'no.5',
-          children: [{
-            value: 6,
-            text: 'no.6'
-          }]
+          value: 6,
+          text: 'no.4',
+          children: [
+            {
+              value: 7,
+              text: 'no.4-1',
+              children: [
+                {
+                  value: 8,
+                  text: 'no.4-1-1'
+                },
+                {
+                  value: 9,
+                  text: 'no.4-1-2',
+                  children: []
+                }
+              ]
+            }
+          ]
         },
         {
-          value: 7,
-          text: 'no.7',
-          children: [{
-            value: 8,
-            text: 'no.8'
-          }]
+          value: 10,
+          text: 'no.5'
         },
         {
-          value: 999,
-          text: 'no.999',
+          value: 11,
+          text: 'no.6',
           children: [{
-            value: 4321,
-            text: 'no.4321'
+            value: 12,
+            text: 'no.6-1'
           }]
         }
       ]

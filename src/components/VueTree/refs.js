@@ -13,7 +13,8 @@ class Ref {
   }
 
   set (vm) {
-    this.refs[vm.cid] = vm
+    const { cid } = vm
+    this.refs[cid] = vm
   }
 
   get (cid) {
@@ -29,10 +30,11 @@ const refs = {}
 
 // 初始化工厂生产实例
 const init = function (opts, tree) {
-  if (!refs[opts.name]) {
+  const { name } = opts
+  if (!refs[name]) {
     return new Ref(opts, tree)
   }
-  return refs[opts.name]
+  return refs[name]
 }
 
 // 销毁实例
