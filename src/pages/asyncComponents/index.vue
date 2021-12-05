@@ -2,7 +2,7 @@
   <div>
     <div v-if="showAsyncCom" style="height: 200px;display: flex;flex-direction: column;justify-content: space-around;">
       <async1></async1>
-      <async2></async2>
+      <async2></async2>this指针 & 闭包 & 作用域
       <async3></async3>
       <async-example></async-example>
       <async-webpack-example></async-webpack-example>
