@@ -171,7 +171,7 @@ function v() {
     function a() {
 
     }
-    console.log(a); 
+    console.log(a);
 }
 
 v(); // 6
@@ -184,7 +184,7 @@ function v() {
     function a() {
 
     }
-    console.log(a); 
+    console.log(a);
 }
 
 v(); // fn a
@@ -229,27 +229,14 @@ v(); // fn a
 ```js
 function v() {
     console.log(a); // fn a
-
     var a = 1;
-
     console.log(a); // 1
-
-    function a() {
-
-    }
-
+    function a() {}
     console.log(a); // 1
-
     console.log(b); // fn b
-
     var b = 2;
-
     console.log(b); // 2
-
-    function b() {
-
-    }
-
+    function b() {}
     console.log(b); // 2
 }
 v();
